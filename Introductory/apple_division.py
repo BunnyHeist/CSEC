@@ -1,13 +1,10 @@
 n = int(input())
 ls = sorted([int(i) for i in input().split()])
 
-s1 = set()
-s2 = set()
-
-for x in range(len(ls) - 1, -1, -1):
-    if sum(s1) <= sum(s2):
-        s1.add(ls[x])
+def find_min(ind, box_1, box_2):
+    if ind == n:
+        return abs(box_1 - box_2)
     else:
-        s2.add(ls[x])
+        return(min(find_min(ind + 1, box_1 + ls[ind], box_2),find_min(ind + 1, box_1, box_2 + ls[ind])))
 
-print(abs(sum(s1) - sum(s2)))
+print(find_min(0,0,0))
