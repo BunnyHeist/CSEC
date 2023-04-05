@@ -14,7 +14,7 @@ def check_next(r):
 
 
     for c in range(0,N):
-        if(col[c] == False and diag_l[r - c + N - 1] == False and diag_r[r + c] == False and reserved[c][r] == '.'):
+        if(col[c] == False and diag_l[r - c + N - 1] == False and diag_r[r + c] == False and reserved[c][r] == False):
             col[c] = diag_l[r - c + N - 1] = diag_r[r + c] = True
             check_next(r + 1)
             col[c] = diag_l[r - c + N - 1] = diag_r[r + c] = False
